@@ -1,0 +1,102 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+
+@{
+    ViewData["Title"] = "BlogRead";
+    Layout = "~/Views/Shared/_ALayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<body>
+
+    <div id="site-content">
+
+
+        <main class="main-content">
+
+            <div class="content">
+                <div class="container">
+                    @foreach (var item in Model)
+                    {
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <figure><img src="@item.Image"></figure>
+                            </div>
+                            <div class="col-md-7 col-md-offset-1">
+                                <h2 class="entry-title">@item.Title</h2>
+                                <div class="recipe-meta">
+                                    <span class="time"><i class="bi bi-clock-history"></i> @item.Time min</span>
+                                    <span class="calorie"><i class="bi bi-bar-chart"></i> @item.Kcl.ToString() kcal</span>
+                                </div>
+                                <div class="ingredient">
+                                    <h3>İçindekiler</h3>
+                                    <div>
+                                        @item.Contents
+                                        
+                                    </div>
+                                </div>
+
+                                <p>@item.Description</p>
+                             
+
+
+                            </div>
+                        </div>
+                    }
+
+                <div class="content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                                <div class="col-md-7 col-md-offset-1">
+                                    <section class="comments">
+                                        <h3>Yorumlar</h3>
+                                       @await Component.InvokeAsync("CommentList", new { id = ViewBag.Id }) 
+
+                                        <div id="respond">
+                                            <h3>Yorum Bırak</h3>
+                                            <form asp-action="Add" asp-controller="Comment" method="post" class="comment-form">
+                                                <div class="row">
+
+                                                    <input name="BlogID" value="@ViewBag.Id" type="hidden">
+
+
+                                                    <div class="col-md-6">
+                                                        <input type="text" name="Name" placeholder="Adınız">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" name="Email" placeholder="Email">
+                                                    </div>
+                                                </div>
+                                                <textarea name="CommentDescription" placeholder="Yorumunuz"></textarea>
+                                                <input type="submit" value="Yorum Yap">
+                                            </form>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                        </div>
+                    </div>
+
+
+
+</main> <!-- .main-content -->
+
+
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>

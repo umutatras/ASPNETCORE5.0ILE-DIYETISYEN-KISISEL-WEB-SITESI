@@ -1,0 +1,80 @@
+﻿@using EntityLayer.Concrete
+@model List<DietProgram>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <p>
+        <a class="btn btn-primary" href="/Admin/DietPrgoram/Add/">Yeni Program Ekle</a>
+    </p>
+    <table class="table table-bordered table-striped" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    Resim
+                </th>
+                <th>
+                    Başlık
+                </th>
+                <th>
+                    Açıklama
+                </th>
+                <th>
+                    Tarih
+                </th>       
+
+                <th>Düzenle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (item.Image != null)
+                        {
+                            <img src="@item.Image" width="85" height="85" />}
+                        else
+                        {
+                            <img src="/dietician/images/resim-yok.jpg" width="85" height="85" />
+                        }
+
+                    </td>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        @item.Description
+                    </td>
+                    <td>
+                        @item.Dateinfo
+                    </td>
+               
+
+                    <td>
+                        <a href="/Admin/DietProgram/Update/@item.DietID">Düzenle</a>
+                    </td>
+                    <td>
+                        <a href="/Admin/DietProgram/Delete/@item.DietID">Sil</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $('#myTable').DataTable({
+                    language: {
+                        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json",
+                    },
+                });
+            });
+    </script>
+}

@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@await Html.PartialAsync("/Views/Layout/Head.cshtml") 
+
+
+<body class="homepage">
+
+    <div id="site-content">
+        @await Html.PartialAsync("/Views/Layout/Header.cshtml")
+
+        @RenderBody()
+        @await Html.PartialAsync("/Views/Layout/Footer.cshtml")
+
+    </div>
+
+
+
+    <script src="/dietician/js/jquery-1.11.1.min.js"></script>
+    <script src="/dietician/js/plugins.js"></script>
+    <script src="/dietician/js/app.js"></script>
+
+</body>
+
+</html>

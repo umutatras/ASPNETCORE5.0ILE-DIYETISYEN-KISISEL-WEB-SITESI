@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ALayout.cshtml";
+}
+
+@{
+    string[] colors = { "fullwidth-block cooking-section category-block", "fullwidth-block restaurant-section category-block", "fullwidth-block fruits-section category-block", "fullwidth-block vegetables-section category-block"};
+    int i = 0;
+}
+
+<div class="hero">
+    <div class="container">
+        <i class="icon-cupcake logo"></i>
+        <h1 class="site-title">Umut Atraş</h1>
+        <small class="site-description">Diyetisyen</small>
+    </div>
+</div>
+
+<main class="main-content">
+    @foreach (var item in Model.TakeLast(4))
+    {
+       
+        <div class="@colors[i++]">
+            <div class="container">
+                <figure><img src="@item.Image" alt="yemek"></figure>
+                <div class="category-content">
+                    <h1 class="category-title">@item.Title</h1>
+                    <p>@item.Description.Substring(0, 200) ...</p>
+                    <a href="/Blog/Index/" class="button">Devamını Oku...</a>
+                </div> <!-- .category-content -->
+            </div>
+        </div> <!-- .cooking-section -->
+    }
+
+</main>

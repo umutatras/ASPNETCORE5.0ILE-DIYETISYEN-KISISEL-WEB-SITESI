@@ -1,0 +1,65 @@
+﻿@using EntityLayer.Concrete
+@model List<ContactStatic>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ALayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<body>
+
+    <div id="site-content">
+        <!-- .site-header -->
+
+        <main class="main-content">
+
+            <div class="content">
+                <div class="container">
+
+                    <h2 class="entry-title">BİZİMLE İLETİŞİME GEÇ!</h2>
+                    <p>Aşağıdaki iletişim bilgilerinden veya iletişim formundan bizimle iletişime geçebilirsiniz.</p>
+                    @foreach (var item in Model)
+                    {
+                        <div class="contact-detail">
+                            <span class="location"><img src="/dietician/images/icon-map-marker-alt.png"> @item.Address</span>
+                            <span class="email"><img src="/dietician/images/icon-envelope.png"> @item.Email</span>
+                            <span class="phone"><img src="/dietician/images/icon-phone.png">@item.Telefon</span>
+                        </div>
+                    }
+
+                    <form method="post" asp-action="ContactAdd" asp-controller="Contact">
+                        <div class="contact-form">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <input name="Namesurname" type="text" placeholder="Adınız Soyadınız">
+                                    <input name="Email" type="text" placeholder="Email">
+                                    <input name="Phone" type="text" placeholder="Telefon">
+                                </div>
+                                <div class="col-md-7">
+                                    <textarea name="Message" placeholder="Mesajınız"></textarea>
+                                    <input type="submit" value="Mesaj Yolla">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </main> <!-- .main-content -->
+
+
+
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>

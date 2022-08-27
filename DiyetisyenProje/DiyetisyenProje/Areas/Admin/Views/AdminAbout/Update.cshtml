@@ -1,0 +1,49 @@
+﻿@model EntityLayer.Concrete.About
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form asp-controller="AdminAbout" asp-action="Update"  method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        <input type="hidden" asp-for="AboutId" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">Resim</label>
+        <input asp-for="Image" type="hidden" class="form-control" />
+        <input asp-for="Image" type="file" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">İsim</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Soyisim</label>
+        <input asp-for="Surname" class="form-control" />
+        <span asp-validation-for="Surname" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Şehir</label>
+        <input asp-for="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Deneyim</label>
+        <input asp-for="Experience" class="form-control" />
+        <span asp-validation-for="Experience" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Deneyim</label>
+        <input asp-for="AboutMe" class="form-control" />
+        <span asp-validation-for="AboutMe" class="text-danger"></span>
+    </div>
+
+
+
+    <div class="form-group">
+        <input  type="submit" value="Kaydet" class="btn btn-success" />
+    </div>
+</form>

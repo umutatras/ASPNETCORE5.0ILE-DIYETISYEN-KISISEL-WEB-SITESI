@@ -1,0 +1,113 @@
+/*
+ * Reusable Components Style
+ */
+
+ .button{
+ 	padding: 10px 20px;
+ 	border-radius: 20px;
+ 	display: inline-block;
+ 	font-weight: 500;
+ 	color: white;
+ 	@include em(14);
+ }
+
+ .feature{
+	text-align: center;
+	.feature-icon{
+		width: 250px;
+		height: 250px;
+		border-radius: 50%;
+		text-align: center;
+		margin-bottom: 20px;
+		display: inline-block;
+		padding-top: 70px;
+
+		[class^="icon-"]{
+			@include em(100);
+			color: $bg-color;
+		}
+
+	}
+
+	.feature-title{
+		@include em(24);
+		margin: 0 0 10px;
+	}
+
+
+	&.color-purple{
+		.feature-icon{ background-color: $color-purple }
+		.feature-title{ color: $color-purple }
+	}
+	&.color-green{
+		.feature-icon{ background-color: $color-green }
+		.feature-title{ color: $color-green }
+	}
+	&.color-pink{
+		.feature-icon{ background-color: $color-pink }
+		.feature-title{ color: $color-pink }
+	}
+	&.color-orange{
+		.feature-icon{ background-color: $color-orange }
+		.feature-title{ color: $color-orange }
+	}
+ }
+
+ .map{
+ 	height: 300px;
+ 	border-radius: 20px;
+ 	overflow: hidden;
+ 	margin-bottom: 30px;
+ }
+
+ .contact-detail{
+ 	border-radius: 30px;
+ 	padding: 20px;
+ 	border: 3px solid $border-color;
+ 	text-align: center;
+ 	margin-bottom: 30px;
+
+ 	img{ 
+ 		vertical-align: middle;
+ 		margin-right: 5px;
+ 	}
+ 	span{
+ 		margin-right: 10px;
+ 		display: inline-block;
+ 	}
+ }
+
+ .contact-form{
+
+ 	input:not([type="submit"]), textarea{
+ 		width: 100%;
+ 		padding: 20px;
+ 		border-radius: 20px;
+ 		background-color: white;
+ 		@include em(14);
+ 		border: 2px solid white;
+ 		margin-bottom: 20px;
+ 		outline: none;
+ 		transition: .3s ease;
+ 		&:hover,&:focus{
+ 			border-color: $accent-color;
+ 		}
+
+ 	}
+ 	textarea{
+ 		height: 220px;
+ 	}
+ 	input[type="submit"]{
+ 		float: right;
+ 		background-color: $accent-color;
+ 		color: $bg-color;
+ 		padding: 15px 30px;
+ 		border-radius: 30px;
+ 		border: none;
+ 		outline: none;
+ 		transition: .3s ease;
+
+ 		&:hover,&:focus{background-color: lighten($accent-color, 10%)}
+
+ 	}
+ }

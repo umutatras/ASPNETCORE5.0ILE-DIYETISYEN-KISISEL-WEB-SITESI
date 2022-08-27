@@ -1,0 +1,72 @@
+﻿@model IEnumerable<EntityLayer.Concrete.DietProgram>
+
+@{
+    ViewData["Title"] = "DietRead";
+    Layout = "~/Views/Shared/_ALayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    <link href="/blogsdetails/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="/blogsdetails/css/single.css">
+    <link href="/blogsdetails/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/blogsdetails/css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+          rel="stylesheet">
+</head>
+
+<body>
+    <ol class="breadcrumb">
+    </ol>
+    <section class="banner-bottom">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                    @foreach (var item in Model)
+                    {
+                        <div class="blog-grid-top">
+                            <div class="b-grid-top">
+                                <div class="blog_info_left_grid">
+
+                                    <img style="width:480px;height:380px" src="@item.Image" class="img-fluid" alt="@item.Title">
+
+                                </div>
+                                <div class="blog-info-middle" style="width:488px;">
+                                    <ul>
+                                        <li>
+                                            <a>
+                                                <i class="far fa-calendar-alt"></i> @item.Dateinfo.ToShortDateString()
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3>
+                                @item.Title
+                            </h3>
+                            <p>
+                                @item.Description
+                            </p>
+
+                        </div>
+
+                    }
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

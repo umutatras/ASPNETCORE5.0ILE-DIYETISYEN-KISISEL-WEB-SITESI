@@ -1,0 +1,26 @@
+﻿@using EntityLayer.Concrete
+@model List<ContactDynamic>
+
+<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item">
+        <!-- Message Start -->
+        @foreach (var item in Model.TakeLast(5))
+        {
+        <div class="media">
+            <img src="/AdminLTE-3.2.0/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+            <div class="media-body">
+                <h3 class="dropdown-item-title">
+                   @item.Namesurname
+                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">@item.Email</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>@item.Message.Substring(0,5)</p>
+            </div>
+        </div>}
+        <!-- Message End -->
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="/Admin/Message/Index/" class="dropdown-item dropdown-footer">Tüm Mesajları Görüntüle</a>
+</div>

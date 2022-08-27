@@ -1,0 +1,15 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Comment>
+
+<ul class="comment-list">
+    @foreach (var item in Model) {
+    <li class="comment">
+        <footer>
+            <h4 class="fn"><i class="bi bi-person-heart"></i>@item.Name</h4>
+            <span class="date">@item.CommentDate</span>
+        </footer>
+        <div class="comment-content">
+            <p>@item.CommentDescription</p>
+        </div>
+    </li>}
+
+</ul>

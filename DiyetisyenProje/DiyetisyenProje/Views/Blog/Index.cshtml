@@ -1,0 +1,56 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ALayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<body>
+
+    <div id="site-content">
+    
+
+        <main class="main-content">
+
+            <div class="content">
+                <div class="container">
+
+                    <h2 class="entry-title"></h2>
+                    <p> </p>
+
+                    <div class="recipes-list">
+                        @foreach (var item in Model)
+                        {
+                        <article class="recipe">
+                            <figure class="recipe-image"><img src="@item.Image" alt="Food 1"></figure>
+                            <div class="recipe-detail">
+                                <h2 class="recipe-title"><a href="/Blog/BlogRead/@item.BlogID">@item.Title</a></h2>
+                                <p>@item.Description.Substring(0,100) ...</p>
+                                <div class="recipe-meta">
+                                    <span class="time"><img src="/dietician/images/icon-time.png"> @item.Time dk</span>
+                                    <span class="calorie"><img src="/dietician/images/icon-pie-chart.png"> @item.Kcl.ToString() kcal</span>
+                                </div>
+                            </div>
+                        </article>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </main> <!-- .main-content -->
+
+ 
+
+    </div>
+
+
+
+ 
+</body>
+
+</html>

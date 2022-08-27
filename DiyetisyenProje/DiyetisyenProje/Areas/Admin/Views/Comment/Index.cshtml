@@ -1,0 +1,71 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container"> 
+    <table class="table table-bordered table-striped" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    Adı soyadı
+                </th>
+                <th>
+                    Mail
+                </th>
+                <th>
+                    Tarih
+                </th>
+                <th>
+                    Açıklama
+                </th>
+
+                <th>Sil</th>
+                <th></th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    @item.CommentDate
+                </td>
+                <td>
+                    @item.CommentDescription
+                </td>           
+          
+
+                <td>
+                    <a href="/Admin/Comment/Delete/@item.CommentID">Sil</a>
+                </td>
+                <td></td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                language: {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json",
+                },
+            });
+        });
+    </script>
+}
+

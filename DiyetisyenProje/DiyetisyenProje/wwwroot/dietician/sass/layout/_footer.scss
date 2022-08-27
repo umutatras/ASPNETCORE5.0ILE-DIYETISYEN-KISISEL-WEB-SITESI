@@ -1,0 +1,113 @@
+/*
+ * Footer Styles
+ */
+
+ .site-footer{
+ 	text-align: center;
+ 	padding: 50px 0;
+ 	background-color: white;
+ 	color: #9d9879;
+
+ 	.logo{
+ 		@include em(60);
+ 		color: #e1dece;
+ 	}
+
+ 	.footer-navigation{
+ 		padding: 30px 0;
+
+		a{
+			display: inline-block;
+			padding: 0 20px;
+			line-height: 1;
+			color: #9d9879;
+			font-weight: 400;
+			border-right: 1px solid #9d9879;
+			@include em(14);
+			transition: .3s ease;
+
+			@media screen and (max-width: 480px){
+				display: block;
+				padding: 10px 0;
+				border-right: none;
+
+			}
+
+			&:hover{color:$accent-color;}
+			&:last-child{border-right: none}
+		}
+	}
+
+	.subscribe{
+		position: relative;
+		display: inline-block;
+		width: 50%;
+
+		@media screen and (max-width:990px){ width: 100% }
+		input{outline: none;}
+		input[type="text"]{
+			width:100%;
+			padding: 15px 20px;
+			border-radius: 25px;
+			border: 3px solid $border-color;
+			@include em(14);
+			transition: .3s ease;
+
+			&:focus,&:active{border-color: $accent-color}
+		}
+		input[type="submit"]{
+			position: absolute;
+			right: 6px;
+			top:6px;
+			background-color: $accent-color;
+			color: #f2efdc;
+			padding: 12px 20px;
+			border-radius: 20px;
+			border: none;
+			@include em(14);
+			transition: .3s ease;
+
+			&:focus,&:active{background-color: lighten($accent-color, 10%)}
+		}	
+	}
+
+	.social-links{
+		padding: 30px 0;
+		a{
+			color: white;
+			text-align: center;
+			line-height: 1.9;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			display: inline-block;
+			margin: 0 5px;
+			transition: .3s ease;
+			@include em(26);
+		}
+		.facebook{ 
+			background-color: #3b5a9b;
+
+			&:hover{background-color:lighten(#3b5a9b,10%)} 
+		}
+		.twitter{ 
+			background-color: #1c9ac7;
+
+			&:hover{background-color:lighten(#1c9ac7,10%)}
+		}
+		.google-plus{ 
+			background-color: #dd4b39;
+
+			&:hover{background-color:lighten(#dd4b39,10%)} 
+		}
+		.pinterest{ 
+			background-color: #d11e2e;
+
+			&:hover{background-color:lighten(#d11e2e,10%)} 
+		}
+	}
+
+	.colophon{
+		@include em(14);
+	}
+ }

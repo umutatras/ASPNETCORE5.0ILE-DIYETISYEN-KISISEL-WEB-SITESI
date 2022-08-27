@@ -1,0 +1,61 @@
+﻿@using EntityLayer.Concrete
+@model List<DietProgram>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ALayout.cshtml";
+}
+
+ <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Blog Section</title>
+        <!--Stylesheet----------------------------------->
+        <link rel="stylesheet" type="text/css" href="/blogsdetails/stil.css" />
+        <!--fav-icon------------------------------------->
+        <link rel="shortcut icon" href="images/fav-icon.svg" />
+        <!--poppins-font-family-------------------------->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--blog-section============================================================================-->
+        <section id="blog">
+            <!--blog-heading--------------->
+            <div class="blog-heading">
+                
+                <h3>DİYET PROGRAMLARI</h3>
+            </div>
+
+
+            <!--container---------------->
+            <div class="blog-container">
+
+               @foreach (var item in Model)
+               {
+                <div class="blog-box">
+
+                 
+                    <div class="blog-img">
+                        <img alt="blog" src="@item.Image">
+                    </div>
+                    <!--text--->
+                    <div class="blog-text">
+                        <span>@item.Dateinfo.ToShortDateString()</span>
+                        <a href="#" class="blog-title">@item.Title</a>
+                        <p>@item.Description.Substring(0,50)</p>
+                        <a href="/DietProg/DietRead/@item.DietID">Devamını Oku...</a>
+                    </div>
+
+                </div>
+               }
+
+
+
+            </div>
+
+        </section>
+
+    </body>
+</html>

@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete
+@model List<ContactStatic> 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <table class="table table-bordered table-striped" >
+        <thead>
+            <tr>
+                <th>
+                    Adres
+                </th>
+                <th>
+                    Mail
+                </th>
+                <th>
+                    Telefon
+                </th>
+           
+
+                <th>Düzenle</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @item.Address
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        @item.Telefon
+                    </td>             
+
+                    <td>
+                        <a href="/Admin/Contact/Update/@item.ContactStaticID">Düzenle</a>
+                    </td>
+                    <td></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

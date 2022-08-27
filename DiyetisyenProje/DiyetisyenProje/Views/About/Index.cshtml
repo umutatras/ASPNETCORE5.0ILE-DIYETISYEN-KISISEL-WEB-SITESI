@@ -1,0 +1,48 @@
+﻿@using EntityLayer.Concrete
+@model List<About> 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ALayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <div id="site-content">
+  
+
+        <main class="main-content">
+            @foreach (var item in Model)
+            {
+            <div class="author-bio">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <figure class="profile-picture">
+                                <img src="@item.Image" alt="">
+                            </figure>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <h2>Merhaba, <br>Ben @item.Name @item.Surname</h2>
+                            <p>@item.AboutMe </p>
+                            <ul class="person-detail">
+                                <li><span class="icon"><img src="/dietician/images/icon-map-marker.png"></span>Şehir: <strong>@item.City</strong></li>
+                                <li><span class="icon"><img src="/dietician/images/icon-clock.png"></span>Deneyim: <strong>@item.Experience Yıl</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>}
+
+        </main> <!-- .main-content -->
+
+        
+
+    </div>
+
+
+</body>
+
+</html>

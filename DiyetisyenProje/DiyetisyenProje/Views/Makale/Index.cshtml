@@ -1,0 +1,75 @@
+﻿@using EntityLayer.Concrete
+@model List<Makale>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ALayout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    <link href="/blogsdetails/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/blogsdetails/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/blogsdetails/css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+          rel="stylesheet">   
+
+</head>
+
+<body>
+    <div class="banner-inner">
+    </div>
+    <ol class="breadcrumb">
+    </ol>
+
+    <section class="main-content-w3layouts-agileits">
+        <div class="container">
+            <h3 class="tittle">Yazılarım</h3>
+            <div class="inner-sec">
+                <!--left-->
+                <div class="left-blog-info-w3layouts-agileits text-left">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-4 card">
+
+                               <a> <img style="width:480px;height:380px" src="@item.Image" class="card-img-top img-fluid" alt=""></a>
+
+                                <div class="card-body">
+                                    <ul class="blog-icons my-4">
+                                        <li>
+
+                                            <i class="far fa-calendar-alt"></i> @item.Dateinfo.ToShortDateString()
+
+                                        </li>
+
+
+                                    </ul>
+                                    <h5 class="card-title">
+                                        <a>@item.Title</a>
+                                    </h5>
+                                    <p class="card-text mb-3">
+                                        @item.Description.Substring(0,35)
+                                        ..
+                                    </p>
+                                    <a href="/Makale/MakaleRead/@item.MakaleID" class="btn btn-primary read-m">Devamını Oku...</a>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>
